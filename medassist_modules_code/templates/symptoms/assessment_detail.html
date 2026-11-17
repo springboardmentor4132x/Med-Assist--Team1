@@ -18,6 +18,6 @@
   {% endif %}
   <h3>Medical history snapshot</h3>
   <ul>{% for item in assessment.medical_history_snapshot %}<li><b>{{ item.condition_name }}</b> – {{ item.notes }} ({{ item.recorded_on|default:"Date not provided" }})</li>{% empty %}<li>No previous medical history recorded.</li>{% endfor %}</ul>
-  <p class="muted">This is a student project demonstration of dataset associations, not a diagnosis or medical advice.</p>
+  
 </div>
 {% endblock %}
