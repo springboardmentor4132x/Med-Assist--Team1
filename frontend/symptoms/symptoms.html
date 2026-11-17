@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAssist AI - Symptom Analysis</title>
+    <link rel="stylesheet" href="symptoms.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MedAssist AI</h1>
+            <p>Symptom Selection and Analysis</p>
+        </header>
+        <main>
+            <section class="selection-section">
+                <h2>Select Your Symptoms</h2>
+                <p class="description">
+                    Select the symptoms you are currently experiencing.
+                    You can choose multiple symptoms.
+                </p>
+                <!-- Search -->
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search symptoms..."
+                >
+                <!-- Available symptoms -->
+                <div id="symptomList" class="symptom-list">
+                    Loading symptoms...
+                </div>
+                <!-- Selected symptoms -->
+                <div class="selected-section">
+                    <h3>Selected Symptoms</h3>
+                    <div id="selectedSymptoms" class="selected-list">
+                        No symptoms selected.
+                    </div>
+                </div>
+                <!-- Error message -->
+                <p id="errorMessage" class="error"></p>
+                <!-- Success message -->
+                <p id="successMessage" class="success"></p>
+                <!-- Submit -->
+                <button id="submitButton">
+                    Submit Symptoms
+                </button>
+            </section>
+            <section class="history-section">
+                <h2>Previous Assessments</h2>
+                <button id="historyButton">
+                    View My Assessments
+                </button>
+                <div id="historyList"></div>
+            </section>
+        </main>
+    </div>
+    <script src="symptoms.js"></script>
+</body>
+</html>

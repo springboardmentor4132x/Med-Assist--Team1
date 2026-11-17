@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+}
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    color: #176b87;
+    margin-bottom: 8px;
+}
+.selection-section,
+.history-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+h2 {
+    margin-bottom: 12px;
+}
+.description {
+    color: #666;
+    margin-bottom: 20px;
+}
+#searchInput {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.symptom-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.symptom-item {
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.symptom-item:hover {
+    background: #eef8fb;
+}
+.symptom-item input {
+    margin-right: 8px;
+}
+.selected-section {
+    margin-top: 25px;
+}
+.selected-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+.selected-item {
+    background: #d9f0f5;
+    color: #176b87;
+    padding: 9px 12px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.remove-button {
+    border: none;
+    background: none;
+    color: #b22222;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #176b87;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+button:hover {
+    background: #10536a;
+}
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.error {
+    color: red;
+    margin-top: 15px;
+}
+.success {
+    color: green;
+    margin-top: 15px;
+}
+.history-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-top: 12px;
+    border-radius: 7px;
+}
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .selection-section,
+    .history-section {
+        padding: 18px;
+    }
+
+}
