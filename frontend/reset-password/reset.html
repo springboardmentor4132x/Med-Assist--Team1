@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password | MedAssist AI</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+
+    <div class="reset-container">
+        <h1>MedAssist AI</h1>
+        <h2>Reset Your Password</h2>
+
+        <p>Enter your new password below.</p>
+
+        <form id="resetForm">
+            <label for="newPassword">New Password</label>
+            <input
+                type="password"
+                id="newPassword"
+                placeholder="Enter new password"
+                required
+            >
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm new password"
+                required
+            >
+
+            <button type="submit" id="resetButton">
+                Reset Password
+            </button>
+        </form>
+
+        <p id="message"></p>
+
+        <a href="../login/login.html">Back to Login</a>
+    </div>
+
+    <script src="reset.js"></script>
+</body>
+</html>

@@ -169,3 +169,33 @@ async function logoutUser() {
         window.location.href = "login.html";
     }
 }
+// Forgot Password functionality
+const forgotPasswordLink = document.getElementById("forgotPassword");
+if (forgotPasswordLink) {
+    forgotPasswordLink.addEventListener("click", async function (event) {
+        event.preventDefault();
+        const email = prompt("Enter your registered email address:");
+        if (!email) {
+            return;
+        }
+        try {
+            const response = await fetch(
+                "http://127.0.0.1:8000/api/auth/forgot-password/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email.trim()
+                    })
+                }
+            );
+            const data = await response.json();
+            alert(data.message || data.error || "Check your email.");
+        } catch (error) {
+            console.error(error);
+            alert("Unable to connect to the server. Please try again.");
+        }
+    });
+}
