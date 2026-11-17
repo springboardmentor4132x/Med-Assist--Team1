@@ -1,11 +1,94 @@
-{% extends "base.html" %}
-{% block content %}
-<div class="card">
-  <h2>MedAssist AI Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log in</button>
-  </form>
-</div>
-{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAssist AI</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f4fa;
+            color: #263238;
+        }
+        header {
+            background: #1a73e8;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 40px 15px;
+        }
+        .card {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000012;
+        }
+        h2 { color: #1a73e8; }
+        input {
+            width: 100%;
+            padding: 11px;
+            margin: 6px 0 15px;
+            border: 1px solid #ccd5e0;
+            border-radius: 6px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1a73e8;
+            color: white;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .errorlist { color: red; }
+        @media(max-width: 600px) {
+            .container { padding: 20px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MedAssist AI</h1>
+    <p>Patient Health Management System</p>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <h2>Login</h2>
+        <p>Already have an account? Login here.</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="login">
+            {{ login_form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Create Account</h2>
+        <p>New to MedAssist AI? Register here.</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="register">
+            {{ register_form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+</main>
+</body>
+</html>
