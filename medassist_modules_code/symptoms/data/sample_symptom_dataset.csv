@@ -1,0 +1,6 @@
+disease,fever,headache,body_pain,cough,fatigue,nausea,sore_throat
+Example Pattern A,1,1,1,0,1,0,0
+Example Pattern B,1,0,1,1,1,0,1
+Example Pattern C,0,1,0,0,1,1,0
+Example Pattern D,1,1,0,0,0,0,1
+Example Pattern E,0,0,1,1,1,1,0

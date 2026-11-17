@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>My Medical History</h2>
+  <p><a class="btn" href="{% url 'medical_history_add' %}">Add history entry</a></p>
+  {% for entry in entries %}
+    <hr>
+    <p><b>{{ entry.condition_name }}</b></p>
+    <p>{{ entry.notes|default:"No additional notes" }}</p>
+    <p class="muted">{{ entry.recorded_on|default:"Date not provided" }}</p>
+  {% empty %}
+    <p>No medical history entries have been added.</p>
+  {% endfor %}
+</div>
+{% endblock %}

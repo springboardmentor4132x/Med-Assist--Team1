@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Patient Profile</h2>
+  {% if profile %}
+    <p><b>Full name:</b> {{ profile.full_name }}</p>
+    <p><b>Email:</b> {{ request.user.email|default:"Not provided" }}</p>
+    <p><b>Age:</b> {{ profile.age|default:"Not provided" }}</p>
+    <p><b>Gender:</b> {{ profile.get_gender_display|default:"Not provided" }}</p>
+    <p><b>Contact:</b> {{ profile.contact_number|default:"Not provided" }}</p>
+    <p class="muted">Last updated: {{ profile.updated_at }}</p>
+  {% else %}
+    <p>Your profile has not been completed yet.</p>
+  {% endif %}
+  <a class="btn" href="{% url 'profile_edit' %}">Edit profile</a>
+</div>
+{% endblock %}

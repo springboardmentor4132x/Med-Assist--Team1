@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>My Symptom Assessments</h2>
+  {% for item in assessments %}
+    <p><a href="{% url 'assessment_detail' item.id %}">Assessment #{{ item.id }}</a> – {{ item.submitted_at }}</p>
+  {% empty %}
+    <p>No assessments submitted yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

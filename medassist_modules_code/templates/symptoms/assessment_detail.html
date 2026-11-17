@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Symptom Assessment #{{ assessment.id }}</h2>
+  <p><b>Submitted:</b> {{ assessment.submitted_at }}</p>
+  <h3>Current symptoms</h3>
+  <ul>{% for symptom in assessment.symptoms.all %}<li>{{ symptom.name }}</li>{% endfor %}</ul>
+  <h3>Correlation analysis</h3>
+  {% if assessment.correlation_summary.dataset_loaded %}
+    <p>Dataset rows checked: {{ assessment.correlation_summary.dataset_rows }}</p>
+    <p>Rows matching all selected symptoms: {{ assessment.correlation_summary.matching_records }}</p>
+    <h4>Frequency in dataset</h4>
+    <ul>{% for name, count in assessment.correlation_summary.symptom_frequency.items %}<li>{{ name }}: {{ count }}</li>{% endfor %}</ul>
+    <h4>Pairwise associations (Jaccard similarity)</h4>
+    <ul>{% for pair in assessment.correlation_summary.pairwise_associations %}<li>{{ pair.symptom_1 }} + {{ pair.symptom_2 }}: {{ pair.co_occurrence_count }} co-occurrences; similarity {{ pair.jaccard_similarity }}</li>{% empty %}<li>Select at least two symptoms to see pairs.</li>{% endfor %}</ul>
+  {% else %}
+    <p>{{ assessment.correlation_summary.message }}</p>
+  {% endif %}
+  <h3>Medical history snapshot</h3>
+  <ul>{% for item in assessment.medical_history_snapshot %}<li><b>{{ item.condition_name }}</b> – {{ item.notes }} ({{ item.recorded_on|default:"Date not provided" }})</li>{% empty %}<li>No previous medical history recorded.</li>{% endfor %}</ul>
+  <p class="muted">This is a student project demonstration of dataset associations, not a diagnosis or medical advice.</p>
+</div>
+{% endblock %}

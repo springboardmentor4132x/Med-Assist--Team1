@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Add Medical History</h2>
+  <p class="muted">Use fictional data for demonstrations. Only add information belonging to your own test account.</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save history</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Symptom Analysis</h2>
+  <p class="muted">Search and select all symptoms you are currently experiencing.</p>
+  <input id="symptomSearch" type="search" placeholder="Search symptoms...">
+  <form method="post">
+    {% csrf_token %}
+    <div id="symptomList">
+      {% for symptom in symptoms %}
+        <label class="symptom" data-name="{{ symptom.name|lower }}">
+          <input type="checkbox" name="symptoms" value="{{ symptom.id }}">
+          {{ symptom.name }}
+        </label>
+      {% empty %}
+        <p>No symptoms loaded. Run the load_symptom_dataset command.</p>
+      {% endfor %}
+    </div>
+    <p><button type="submit">Submit symptoms</button></p>
+  </form>
+</div>
+<script>
+const search = document.getElementById("symptomSearch");
+search.addEventListener("input", function () {
+  const term = this.value.toLowerCase();
+  document.querySelectorAll("#symptomList label").forEach(label => {
+    label.style.display = label.dataset.name.includes(term) ? "inline-flex" : "none";
+  });
+});
+</script>
+{% endblock %}
