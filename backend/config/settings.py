@@ -141,3 +141,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
 ]
+
+DEFAULT_FROM_EMAIL = 'medassist@example.com'
+FRONTEND_URL = 'http://127.0.0.1:5500'
